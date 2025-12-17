@@ -1,11 +1,12 @@
 {
-  "name": "spec-driven-dev-template",
+  "name": "claude-code-book-chapter8",
   "image": "mcr.microsoft.com/devcontainers/base:bookworm",
-  "workspaceFolder": "/workspaces/spec-driven-dev-template",
+  "workspaceFolder": "/workspaces/claude-code-book-chapter8",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
       "version": "lts"
-    }
+    },
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
   },
   "postCreateCommand": "npm install"
 }
