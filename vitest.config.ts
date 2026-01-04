@@ -4,6 +4,12 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'node',
+    pool: 'forks',
+    poolOptions: {
+      forks: {
+        singleFork: true,
+      },
+    },
     include: [
       'src/**/*.{test,spec}.{ts,tsx}',
       'tests/**/*.{test,spec}.{ts,tsx}',
