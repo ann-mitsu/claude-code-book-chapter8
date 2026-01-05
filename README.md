@@ -30,3 +30,73 @@ Visual Studio Codeで「Reopen in Container」を選択すると、自動的に�
 - Claude Codeの最新版インストール
 
 ※ Dev Containerを利用する際は、事前にDockerのインストールが必要です。
+
+## コマンドリファレンス
+
+### `task config` コマンド
+
+ユーザープロフィールや設定を管理するためのコマンドです。
+
+#### 設定値の保存
+
+```bash
+task config set <key> <value>
+```
+
+**使用例:**
+```bash
+task config set user.name "田中太郎"
+task config set user.email "tanaka@example.com"
+task config set user.github "tanaka-taro"
+task config set defaults.priority high
+task config set defaults.sort created
+```
+
+**設定可能なキー:**
+- `user.name`: ユーザー名
+- `user.email`: メールアドレス（形式チェックあり）
+- `user.github`: GitHubユーザー名
+- `defaults.priority`: デフォルトの優先度（`low`, `medium`, `high`, `critical`）
+- `defaults.sort`: デフォルトのソート順（`created`, `updated`, `priority`, `due`）
+
+#### 設定値の取得
+
+```bash
+task config get <key>
+```
+
+**使用例:**
+```bash
+task config get user.name
+# 出力: 田中太郎
+```
+
+#### 設定一覧の表示
+
+```bash
+task config list
+```
+
+**使用例:**
+```bash
+task config list
+```
+
+**出力例:**
+```
+設定一覧:
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ユーザー設定:
+  user.name:    田中太郎
+  user.email:   tanaka@example.com
+  user.github:  tanaka-taro
+
+デフォルト設定:
+  defaults.priority: high
+  defaults.sort:     created
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+**設定ファイル:**
+設定は `.task/config.json` に JSON 形式で保存されます。
